@@ -32,6 +32,7 @@ export default function App() {
       'chocolate',
       'chocolate is actually good for your health'
     );
+    rbtId.add('bakar', 'burn', 'let us burn this city', 'burn.gif');
     rbtId.add('kereta', 'train', 'train is a very old mode of transportation');
     rbtId.add('tumbuh', 'grow', 'an oak tree can grow up to 43 meters tall');
 
@@ -47,6 +48,7 @@ export default function App() {
     );
     rbtEn.add('collapse', 'runtuh', 'bangunan itu diruntuhkan dengan sengaja');
     rbtEn.add('chocolate', 'cokelat', 'cokelat berwarna cokelat dan enak');
+    rbtEn.add('burn', 'bakar', 'ayo bakar kota ini');
     rbtEn.add(
       'train',
       'kereta',
