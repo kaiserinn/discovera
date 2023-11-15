@@ -18,7 +18,7 @@ export default function App() {
     rbtId.add(
       'penyintas',
       'survivor',
-      'bear grylss is a survivor',
+      'bear grylls is a survivor',
       'grylls.gif'
     );
     rbtId.add('miskin', 'poor', 'poor guy', 'broke.gif');
@@ -40,7 +40,7 @@ export default function App() {
     rbtId.add('kereta', 'train', 'train is a very old mode of transportation');
     rbtId.add('tumbuh', 'grow', 'an oak tree can grow up to 43 meters tall');
 
-    rbtEn.add('poor', 'miskin', 'aku miskin sekali');
+    rbtEn.add('poor', 'miskin', 'aku miskin sekali', 'broke.gif');
     rbtEn.add('apple', 'apel', 'makan apel itu baik untuk kesehatanmu');
     rbtEn.add('eat', 'makan', 'kamu harus makan setidaknya tiga kali sehari');
     rbtEn.add('book', 'buku', 'membaca buku di pagi hari itu asik');
@@ -50,9 +50,9 @@ export default function App() {
       'jatuh',
       'gerak turun bebas ke bawah karena gaya gravitasi'
     );
-    rbtEn.add('collapse', 'runtuh', 'bangunan itu runtuh dengan sangat cantik');
+    rbtEn.add('collapse', 'runtuh', 'bangunan itu runtuh dengan sangat cantik', 'collapse.gif');
     rbtEn.add('chocolate', 'cokelat', 'cokelat berwarna cokelat dan enak');
-    rbtEn.add('burn', 'bakar', 'ayo bakar kota ini');
+    rbtEn.add('burn', 'bakar', 'ayo bakar kota ini', 'burn.gif');
     rbtEn.add(
       'train',
       'kereta',
