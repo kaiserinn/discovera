@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultBox from './components/ResultBox';
-import { type Node, RBT } from './RBT/RBT';
+import { type Node } from './RBT/Node';
+import { RBT } from './RBT/RBT';
 
 export default function App() {
   const [inputValue, setInputValue] = useState('');
@@ -21,7 +22,11 @@ export default function App() {
     rbtId.add('buku', 'book', 'reading book once a while feels comforting');
     rbtId.add('jatuh', 'fall', 'to descend freely by the force of gravity');
     rbtId.add('runtuh', 'collapse', 'that building collapse majestically');
-    rbtId.add('cokelat', 'chocolate', 'chocolate is actually good for your health');
+    rbtId.add(
+      'cokelat',
+      'chocolate',
+      'chocolate is actually good for your health'
+    );
     rbtId.add('kereta', 'train', 'train is a very old mode of transportation');
     rbtId.add('tumbuh', 'grow', 'an oak tree can grow up to 43 meters tall');
 
@@ -30,11 +35,23 @@ export default function App() {
     rbtEn.add('eat', 'makan', 'kamu harus makan setidaknya tiga kali sehari');
     rbtEn.add('book', 'buku', 'membaca buku di pagi hari itu asik');
     rbtEn.add('survivor', 'penyintas', 'bear grylls adalah seorang penyintas');
-    rbtEn.add('fall', 'jatuh', 'gerak turun bebas ke bawah karena gaya gravitasi');
+    rbtEn.add(
+      'fall',
+      'jatuh',
+      'gerak turun bebas ke bawah karena gaya gravitasi'
+    );
     rbtEn.add('collapse', 'runtuh', 'bangunan itu diruntuhkan dengan sengaja');
     rbtEn.add('chocolate', 'cokelat', 'cokelat berwarna cokelat dan enak');
-    rbtEn.add('train', 'kereta', 'naik kereta di Indonesia sangat menyenangkan');
-    rbtEn.add('grow', 'tumbuh', 'pohon oak bisa tumbuh sampai ketinggian 43 meter');
+    rbtEn.add(
+      'train',
+      'kereta',
+      'naik kereta di Indonesia sangat menyenangkan'
+    );
+    rbtEn.add(
+      'grow',
+      'tumbuh',
+      'pohon oak bisa tumbuh sampai ketinggian 43 meter'
+    );
   }, [rbtId, rbtEn]);
 
   const searchClicked = () => {
