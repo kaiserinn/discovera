@@ -44,7 +44,7 @@ export default function App() {
     rbtEn.add('apple', 'apel', 'makan apel itu baik untuk kesehatanmu');
     rbtEn.add('eat', 'makan', 'kamu harus makan setidaknya tiga kali sehari');
     rbtEn.add('book', 'buku', 'membaca buku di pagi hari itu asik');
-    rbtEn.add('survivor', 'penyintas', 'bear grylls adalah seorang penyintas');
+    rbtEn.add('survivor', 'penyintas', 'bear grylls adalah seorang penyintas', 'grylls.gif');
     rbtEn.add(
       'fall',
       'jatuh',
