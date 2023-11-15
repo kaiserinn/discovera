@@ -1,12 +1,12 @@
-import Select from "./Select";
+import Select from './Select';
 
 type SearchBarProps = {
-  isSearched: boolean,
-  searchClicked: () => void,
-  inputValue: string,
-  setInputValue: React.Dispatch<React.SetStateAction<string>>,
-  selectValue: string,
-  setSelectValue: React.Dispatch<React.SetStateAction<string>>,
+  isSearched: boolean;
+  searchClicked: () => void;
+  inputValue: string;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  selectValue: string;
+  setSelectValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const SearchBar = ({
@@ -15,13 +15,13 @@ const SearchBar = ({
   inputValue,
   setInputValue,
   selectValue,
-  setSelectValue
+  setSelectValue,
 }: SearchBarProps) => {
   if (!isSearched) {
     return (
       <>
         <div className="text-center text-7xl font-bold text-[#5627FF]">
-          BALOLA
+          DISCOVERA
         </div>
         <div className="flex justify-center gap-2">
           <Select selectValue={selectValue} setSelectValue={setSelectValue} />
