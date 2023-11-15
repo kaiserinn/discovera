@@ -18,35 +18,41 @@ export default function App() {
     rbtId.add(
       'penyintas',
       'survivor',
-      'bear grylss is a survivor',
+      'bear grylls is a survivor',
       'grylls.gif'
     );
     rbtId.add('miskin', 'poor', 'poor guy', 'broke.gif');
     rbtId.add('apel', 'apple', 'eating apple is good for you');
     rbtId.add('makan', 'eat', 'you need to eat at least three times a day');
     rbtId.add('buku', 'book', 'reading book once a while feels comforting');
-    rbtId.add('jatuh', 'fall', 'to descend freely by the force of gravity');
-    rbtId.add('runtuh', 'collapse', 'that building collapse majestically');
+    rbtId.add('jatuh', 'fall', 'that thing can easily fall into that hole');
+    rbtId.add(
+      'runtuh', 
+      'collapse', 
+      'that building collapse majestically', 
+      'collapse.gif');
     rbtId.add(
       'cokelat',
       'chocolate',
       'chocolate is actually good for your health'
     );
+    rbtId.add('bakar', 'burn', 'let us burn this city', 'burn.gif');
     rbtId.add('kereta', 'train', 'train is a very old mode of transportation');
     rbtId.add('tumbuh', 'grow', 'an oak tree can grow up to 43 meters tall');
 
-    rbtEn.add('poor', 'miskin', 'aku miskin sekali');
+    rbtEn.add('poor', 'miskin', 'aku miskin sekali', 'broke.gif');
     rbtEn.add('apple', 'apel', 'makan apel itu baik untuk kesehatanmu');
     rbtEn.add('eat', 'makan', 'kamu harus makan setidaknya tiga kali sehari');
     rbtEn.add('book', 'buku', 'membaca buku di pagi hari itu asik');
-    rbtEn.add('survivor', 'penyintas', 'bear grylls adalah seorang penyintas');
+    rbtEn.add('survivor', 'penyintas', 'bear grylls adalah seorang penyintas', 'grylls.gif');
     rbtEn.add(
       'fall',
       'jatuh',
-      'gerak turun bebas ke bawah karena gaya gravitasi'
+      'pria jantan itu jatuh bebas tanpa menggunakan parasut'
     );
-    rbtEn.add('collapse', 'runtuh', 'bangunan itu diruntuhkan dengan sengaja');
+    rbtEn.add('collapse', 'runtuh', 'bangunan itu runtuh dengan sangat cantik', 'collapse.gif');
     rbtEn.add('chocolate', 'cokelat', 'cokelat berwarna cokelat dan enak');
+    rbtEn.add('burn', 'bakar', 'ayo bakar kota ini', 'burn.gif');
     rbtEn.add(
       'train',
       'kereta',
