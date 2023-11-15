@@ -25,7 +25,7 @@ export default function App() {
     rbtId.add('apel', 'apple', 'eating apple is good for you');
     rbtId.add('makan', 'eat', 'you need to eat at least three times a day');
     rbtId.add('buku', 'book', 'reading book once a while feels comforting');
-    rbtId.add('jatuh', 'fall', 'to descend freely by the force of gravity');
+    rbtId.add('jatuh', 'fall', 'that thing can easily fall into that hole');
     rbtId.add(
       'runtuh', 
       'collapse', 
@@ -48,7 +48,7 @@ export default function App() {
     rbtEn.add(
       'fall',
       'jatuh',
-      'gerak turun bebas ke bawah karena gaya gravitasi'
+      'pria jantan itu jatuh bebas tanpa menggunakan parasut'
     );
     rbtEn.add('collapse', 'runtuh', 'bangunan itu runtuh dengan sangat cantik', 'collapse.gif');
     rbtEn.add('chocolate', 'cokelat', 'cokelat berwarna cokelat dan enak');
