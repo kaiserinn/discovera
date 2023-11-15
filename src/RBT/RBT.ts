@@ -177,9 +177,7 @@ export class RBT {
       root = this.root as Node;
     }
 
-    root.isRed()
-      ? console.log(`\x1b[31m${root.getKey()}`)
-      : console.log(`\x1b[0m${root.getKey()}`);
+    root.isRed() ? console.log(`\x1b[31m${root.getKey()}`) : console.log(`\x1b[0m${root.getKey()}`);
 
     if (root.getLeft() != null) this.preOrder(root.getLeft());
     if (root.getRight() != null) this.preOrder(root.getRight());
@@ -195,9 +193,7 @@ export class RBT {
     }
 
     if (root.getLeft() != null) this.inOrder(root.getLeft());
-    root.isRed()
-      ? console.log(`\x1b[31m${root.getKey()}`)
-      : console.log(`\x1b[0m${root.getKey()}`);
+    root.isRed() ? console.log(`\x1b[31m${root.getKey()}`) : console.log(`\x1b[0m${root.getKey()}`);
     if (root.getRight() != null) this.inOrder(root.getRight());
   }
 
@@ -212,53 +208,26 @@ export class RBT {
 
     if (root.getLeft() != null) this.postOrder(root.getLeft());
     if (root.getRight() != null) this.postOrder(root.getRight());
-    root.isRed()
-      ? console.log(`\x1b[31m${root.getKey()}`)
-      : console.log(`\x1b[0m${root.getKey()}`);
+    root.isRed() ? console.log(`\x1b[31m${root.getKey()}`) : console.log(`\x1b[0m${root.getKey()}`);
   }
 
-  public printNode(
-    node = this.root,
-    prefix = '',
-    isTail = true,
-    direction = '',
-    childPrefix = ''
-  ): void {
+  public printNode(node = this.root, prefix = '', isTail = true, direction = '', childPrefix = ''): void {
     if (node !== null) {
       const textColor = node.isRed() ? '\x1b[31m' : '\x1b[0m';
 
       const nodeIndicator = direction === '' ? '' : direction;
 
-      console.log(
-        prefix +
-          (isTail ? '└── ' : '├── ') +
-          textColor +
-          nodeIndicator +
-          node.getKey() +
-          '\x1b[0m'
-      );
+      console.log(prefix + (isTail ? '└── ' : '├── ') + textColor + nodeIndicator + node.getKey() + '\x1b[0m');
 
       if (node.getLeft() !== null || node.getRight() !== null) {
         const newPrefix = prefix + (isTail ? '    ' : '│   ');
 
         if (node.getLeft() !== null) {
-          this.printNode(
-            node.getLeft(),
-            newPrefix,
-            false,
-            'L ',
-            childPrefix + '    '
-          );
+          this.printNode(node.getLeft(), newPrefix, false, 'L ', childPrefix + '    ');
         }
 
         if (node.getRight() !== null) {
-          this.printNode(
-            node.getRight(),
-            newPrefix,
-            true,
-            'R ',
-            childPrefix + '    '
-          );
+          this.printNode(node.getRight(), newPrefix, true, 'R ', childPrefix + '    ');
         }
       }
     }

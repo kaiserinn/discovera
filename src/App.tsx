@@ -44,8 +44,11 @@ export default function App() {
 
   const searchClicked = () => {
     if (!inputValue) return;
-    const nodeTerjemahan =
-      selectValue === 'id_en' ? rbtId.find(inputValue.toLowerCase()) : rbtEn.find(inputValue.toLowerCase());
+
+    setInputValue(inputValue.toLowerCase().trim());
+
+    const nodeTerjemahan = selectValue === 'id_en' ? rbtId.find(inputValue) : rbtEn.find(inputValue);
+
     if (nodeTerjemahan) {
       setTerjemahan(nodeTerjemahan.getValue());
       setExample(nodeTerjemahan.getExample());
