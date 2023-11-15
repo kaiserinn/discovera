@@ -1,30 +1,28 @@
 export class Node {
   private key: string;
-  private value: string;
-  private example: string;
-  private gimmick: string;
-  private left: Node | null;
   private right: Node | null;
+  private left: Node | null;
   private parent: Node | null;
   private red: boolean;
 
+  private value: string;
+  private example: string;
+  private gimmick: string;
+
   constructor(key: string, value: string, example: string, gimmick: string) {
     this.key = key;
-    this.value = value;
-    this.example = example;
-    this.gimmick = gimmick;
     this.left = null;
     this.right = null;
     this.parent = null;
     this.red = true;
+
+    this.value = value;
+    this.example = example;
+    this.gimmick = gimmick;
   }
 
-  getLeft() {
-    return this.left;
-  }
-
-  setLeft(left: Node) {
-    this.left = left;
+  getKey() {
+    return this.key;
   }
 
   getRight() {
@@ -35,24 +33,20 @@ export class Node {
     this.right = right;
   }
 
+  getLeft() {
+    return this.left;
+  }
+
+  setLeft(left: Node) {
+    this.left = left;
+  }
+
   getParent() {
     return this.parent;
   }
 
   setParent(parent: Node) {
     this.parent = parent;
-  }
-
-  getKey() {
-    return this.key;
-  }
-
-  getValue() {
-    return this.value;
-  }
-
-  getExample() {
-    return this.example;
   }
 
   isRed() {
@@ -63,16 +57,16 @@ export class Node {
     this.red = red;
   }
 
+  getValue() {
+    return this.value;
+  }
+
+  getExample() {
+    return this.example;
+  }
+
   getGimmick() {
     return this.gimmick;
-    // switch (this.key) {
-    //   case 'penyintas':
-    //   case 'survivor':
-    //     return 'grylls.gif';
-    //   case 'miskin':
-    //   case 'poor':
-    //     return 'broke.gif';
-    // }
   }
 
   setGimmick(gimmick: string) {

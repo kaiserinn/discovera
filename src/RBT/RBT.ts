@@ -101,6 +101,10 @@ export class RBT {
     return null;
   }
 
+  isExist(key: string): boolean {
+    return Boolean(this.find(key));
+  }
+
   rotateToRight(current: Node) {
     const parent = current.getParent();
     const currentLeft = current.getLeft();
