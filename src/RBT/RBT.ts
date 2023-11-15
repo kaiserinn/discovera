@@ -1,5 +1,4 @@
 import { Node } from './Node.ts';
-import { compareString } from '../utils/compareString.ts';
 
 export class RBT {
   private root: Node | null;
@@ -19,14 +18,14 @@ export class RBT {
 
     let current: Node | null = this.root;
     while (current) {
-      if (compareString(key, current.getKey()) < 0) {
+      if (key < current.getKey()) {
         if (!current.getLeft()) {
           current.setLeft(newNode);
           newNode.setParent(current);
           break;
         }
         current = current.getLeft();
-      } else if (compareString(key, current.getKey()) > 0) {
+      } else if (key > current.getKey()) {
         if (!current.getRight()) {
           current.setRight(newNode);
           newNode.setParent(current);
@@ -89,9 +88,9 @@ export class RBT {
   find(key: string) {
     let current = this.root;
     while (current) {
-      if (compareString(key, current.getKey()) < 0) {
+      if (key < current.getKey()) {
         current = current.getLeft();
-      } else if (compareString(key, current.getKey()) > 0) {
+      } else if (key > current.getKey()) {
         current = current.getRight();
       } else {
         return current;
