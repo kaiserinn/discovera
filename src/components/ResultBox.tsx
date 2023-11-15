@@ -1,22 +1,25 @@
 const ResultBox = ({
   result,
   example,
+  gimmick,
   isError,
 }: {
   result: string;
   example: string;
   isError: boolean;
+  gimmick: string;
 }) => {
   if (result) {
     return (
-      <div className="mx-10 rounded-md bg-white p-4 shadow-md">
-        <div
-          style={{ backgroundColor: !isError ? 'rgb(220 252 231)' : 'rgb(254 202 202)' }}
-          className="rounded-md p-4 text-xl shadow-md"
+      <div className="mx-10 rounded-md bg-white p-4 shadow-md"> <div style={{ backgroundColor: !isError ? 'rgb(220 252 231)' : 'rgb(254 202 202)' }}
+          className="rounded-md p-4 text-xl shadow-md self-stretch"
         >
           {result}
         </div>
         <div className="pt-4">{example}</div>
+        {gimmick && (
+          <img src={`../../public/${gimmick}`} className="pt-4 mx-auto" />
+        )}
       </div>
     );
   } else {

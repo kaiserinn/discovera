@@ -1,6 +1,6 @@
 import { compareString } from "./utils/compareString.ts";
 
-class Node {
+export class Node {
   private key: string;
   private value: string;
   private example: string;
@@ -62,9 +62,20 @@ class Node {
   setRed(red: boolean) {
     this.red = red;
   }
+
+  gimmick() {
+    switch (this.key) {
+      case "penyintas":
+      case "survivor":
+        return "grylls.gif";
+      case "miskin":
+      case "poor":
+        return "broke.gif";
+    }
+  }
 }
 
-export default class RBT {
+export class RBT {
   private root: Node | null;
 
   constructor() {
