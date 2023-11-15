@@ -1,79 +1,5 @@
-import { compareString } from "./utils/compareString.ts";
-
-export class Node {
-  private key: string;
-  private value: string;
-  private example: string;
-  private left: Node | null;
-  private right: Node | null;
-  private parent: Node | null;
-  private red: boolean;
-
-  constructor(key: string, value: string, example: string) {
-    this.key = key;
-    this.value = value;
-    this.example = example
-    this.left = null;
-    this.right = null;
-    this.parent = null;
-    this.red = true;
-  }
-
-  getLeft() {
-    return this.left;
-  }
-
-  setLeft(left: Node) {
-    this.left = left;
-  }
-
-  getRight() {
-    return this.right;
-  }
-
-  setRight(right: Node) {
-    this.right = right;
-  }
-
-  getParent() {
-    return this.parent;
-  }
-
-  setParent(parent: Node) {
-    this.parent = parent;
-  }
-
-  getKey() {
-    return this.key;
-  }
-
-  getValue() {
-    return this.value;
-  }
-
-  getExample() {
-    return this.example;
-  }
-
-  isRed() {
-    return this.red;
-  }
-
-  setRed(red: boolean) {
-    this.red = red;
-  }
-
-  gimmick() {
-    switch (this.key) {
-      case "penyintas":
-      case "survivor":
-        return "grylls.gif";
-      case "miskin":
-      case "poor":
-        return "broke.gif";
-    }
-  }
-}
+import { Node } from './Node.ts';
+import { compareString } from '../utils/compareString.ts';
 
 export class RBT {
   private root: Node | null;
@@ -82,8 +8,8 @@ export class RBT {
     this.root = null;
   }
 
-  add(key: string, value: string, example: string) {
-    const newNode = new Node(key, value, example);
+  add(key: string, value: string, example: string, gimmick: string = '') {
+    const newNode = new Node(key, value, example, gimmick);
 
     if (!this.root) {
       newNode.setRed(false);
@@ -135,7 +61,7 @@ export class RBT {
 
           parent.setRed(false);
           grandParent.setRed(true);
-          this.rotateToRight(grandParent)
+          this.rotateToRight(grandParent);
         }
       } else {
         if (grandParent.getLeft()?.isRed()) {
@@ -149,7 +75,7 @@ export class RBT {
             this.rotateToRight(parent);
             current = temp;
           }
-          
+
           parent.setRed(false);
           grandParent.setRed(true);
           this.rotateToLeft(grandParent);
@@ -239,42 +165,99 @@ export class RBT {
     }
   }
 
-  preOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public preOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
-    if (root.getLeft()) this.preOrderPrint(root.getLeft());
-    if (root.getRight()) this.preOrderPrint(root.getRight());
+
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+
+    if (root.getLeft() != null) this.preOrder(root.getLeft());
+    if (root.getRight() != null) this.preOrder(root.getRight());
   }
 
-  inOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public inOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    if (root.getLeft()) this.inOrderPrint(root.getLeft());
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
-    if (root.getRight()) this.inOrderPrint(root.getRight());
+
+    if (root.getLeft() != null) this.inOrder(root.getLeft());
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+    if (root.getRight() != null) this.inOrder(root.getRight());
   }
 
-  postOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public postOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    if (root.getLeft()) this.postOrderPrint(root.getLeft());
-    if (root.getRight()) this.postOrderPrint(root.getRight());
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
+
+    if (root.getLeft() != null) this.postOrder(root.getLeft());
+    if (root.getRight() != null) this.postOrder(root.getRight());
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+  }
+
+  public printNode(
+    node = this.root,
+    prefix = '',
+    isTail = true,
+    direction = '',
+    childPrefix = ''
+  ): void {
+    if (node !== null) {
+      const textColor = node.isRed() ? '\x1b[31m' : '\x1b[0m';
+
+      const nodeIndicator = direction === '' ? '' : direction;
+
+      console.log(
+        prefix +
+          (isTail ? '└── ' : '├── ') +
+          textColor +
+          nodeIndicator +
+          node.getKey() +
+          '\x1b[0m'
+      );
+
+      if (node.getLeft() !== null || node.getRight() !== null) {
+        const newPrefix = prefix + (isTail ? '    ' : '│   ');
+
+        if (node.getLeft() !== null) {
+          this.printNode(
+            node.getLeft(),
+            newPrefix,
+            false,
+            'L ',
+            childPrefix + '    '
+          );
+        }
+
+        if (node.getRight() !== null) {
+          this.printNode(
+            node.getRight(),
+            newPrefix,
+            true,
+            'R ',
+            childPrefix + '    '
+          );
+        }
+      }
+    }
   }
 }
