@@ -1,4 +1,4 @@
-import { compareString } from "./utils/compareString.ts";
+import { compareString } from '../utils/compareString.ts';
 
 export class Node {
   private key: string;
@@ -12,7 +12,7 @@ export class Node {
   constructor(key: string, value: string, example: string) {
     this.key = key;
     this.value = value;
-    this.example = example
+    this.example = example;
     this.left = null;
     this.right = null;
     this.parent = null;
@@ -65,15 +65,17 @@ export class Node {
 
   gimmick() {
     switch (this.key) {
-      case "penyintas":
-      case "survivor":
-        return "grylls.gif";
-      case "miskin":
-      case "poor":
-        return "broke.gif";
+      case 'penyintas':
+      case 'survivor':
+        return 'grylls.gif';
+      case 'miskin':
+      case 'poor':
+        return 'broke.gif';
     }
   }
 }
+
+export class Gimmcik extends Node {}
 
 export class RBT {
   private root: Node | null;
@@ -135,7 +137,7 @@ export class RBT {
 
           parent.setRed(false);
           grandParent.setRed(true);
-          this.rotateToRight(grandParent)
+          this.rotateToRight(grandParent);
         }
       } else {
         if (grandParent.getLeft()?.isRed()) {
@@ -149,7 +151,7 @@ export class RBT {
             this.rotateToRight(parent);
             current = temp;
           }
-          
+
           parent.setRed(false);
           grandParent.setRed(true);
           this.rotateToLeft(grandParent);
@@ -239,42 +241,99 @@ export class RBT {
     }
   }
 
-  preOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public preOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
-    if (root.getLeft()) this.preOrderPrint(root.getLeft());
-    if (root.getRight()) this.preOrderPrint(root.getRight());
+
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+
+    if (root.getLeft() != null) this.preOrder(root.getLeft());
+    if (root.getRight() != null) this.preOrder(root.getRight());
   }
 
-  inOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public inOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    if (root.getLeft()) this.inOrderPrint(root.getLeft());
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
-    if (root.getRight()) this.inOrderPrint(root.getRight());
+
+    if (root.getLeft() != null) this.inOrder(root.getLeft());
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+    if (root.getRight() != null) this.inOrder(root.getRight());
   }
 
-  postOrderPrint(root?: Node | null) {
-    if (!root) {
-      if (!this.root) {
-        console.log("<Empty>");
-        return;
+  public postOrder(root: Node | null = null): void {
+    if (root === null) {
+      if (this.root === null) {
+        console.log([]);
       }
-      root = this.root;
+
+      root = this.root as Node;
     }
-    if (root.getLeft()) this.postOrderPrint(root.getLeft());
-    if (root.getRight()) this.postOrderPrint(root.getRight());
-    console.log(root.getKey(), root.isRed() ? "RED" : "BLACK")
+
+    if (root.getLeft() != null) this.postOrder(root.getLeft());
+    if (root.getRight() != null) this.postOrder(root.getRight());
+    root.isRed()
+      ? console.log(`\x1b[31m${root.getKey()}`)
+      : console.log(`\x1b[0m${root.getKey()}`);
+  }
+
+  public printNode(
+    node = this.root,
+    prefix = '',
+    isTail = true,
+    direction = '',
+    childPrefix = ''
+  ): void {
+    if (node !== null) {
+      const textColor = node.isRed() ? '\x1b[31m' : '\x1b[0m';
+
+      const nodeIndicator = direction === '' ? '' : direction;
+
+      console.log(
+        prefix +
+          (isTail ? '└── ' : '├── ') +
+          textColor +
+          nodeIndicator +
+          node.getKey() +
+          '\x1b[0m'
+      );
+
+      if (node.getLeft() !== null || node.getRight() !== null) {
+        const newPrefix = prefix + (isTail ? '    ' : '│   ');
+
+        if (node.getLeft() !== null) {
+          this.printNode(
+            node.getLeft(),
+            newPrefix,
+            false,
+            'L ',
+            childPrefix + '    '
+          );
+        }
+
+        if (node.getRight() !== null) {
+          this.printNode(
+            node.getRight(),
+            newPrefix,
+            true,
+            'R ',
+            childPrefix + '    '
+          );
+        }
+      }
+    }
   }
 }

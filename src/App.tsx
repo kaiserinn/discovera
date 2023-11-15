@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultBox from './components/ResultBox';
-import { Node, RBT } from './RBT';
+import { type Node, RBT } from './RBT/RBT';
 
 export default function App() {
   const [inputValue, setInputValue] = useState('');
