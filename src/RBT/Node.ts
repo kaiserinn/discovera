@@ -2,15 +2,17 @@ export class Node {
   private key: string;
   private value: string;
   private example: string;
+  private gimmick: string;
   private left: Node | null;
   private right: Node | null;
   private parent: Node | null;
   private red: boolean;
 
-  constructor(key: string, value: string, example: string) {
+  constructor(key: string, value: string, example: string, gimmick: string) {
     this.key = key;
     this.value = value;
     this.example = example;
+    this.gimmick = gimmick;
     this.left = null;
     this.right = null;
     this.parent = null;
@@ -61,14 +63,19 @@ export class Node {
     this.red = red;
   }
 
-  gimmick() {
-    switch (this.key) {
-      case 'penyintas':
-      case 'survivor':
-        return 'grylls.gif';
-      case 'miskin':
-      case 'poor':
-        return 'broke.gif';
-    }
+  getGimmick() {
+    return this.gimmick;
+    // switch (this.key) {
+    //   case 'penyintas':
+    //   case 'survivor':
+    //     return 'grylls.gif';
+    //   case 'miskin':
+    //   case 'poor':
+    //     return 'broke.gif';
+    // }
+  }
+
+  setGimmick(gimmick: string) {
+    this.gimmick = gimmick;
   }
 }

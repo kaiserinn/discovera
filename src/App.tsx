@@ -15,8 +15,13 @@ export default function App() {
   const [selectValue, setSelectValue] = useState('id_en');
 
   useEffect(() => {
-    rbtId.add('penyintas', 'survivor', 'bear grylss is a survivor');
-    rbtId.add('miskin', 'poor', 'poor guy');
+    rbtId.add(
+      'penyintas',
+      'survivor',
+      'bear grylss is a survivor',
+      'grylls.gif'
+    );
+    rbtId.add('miskin', 'poor', 'poor guy', 'broke.gif');
     rbtId.add('apel', 'apple', 'eating apple is good for you');
     rbtId.add('makan', 'eat', 'you need to eat at least three times a day');
     rbtId.add('buku', 'book', 'reading book once a while feels comforting');
@@ -74,7 +79,7 @@ export default function App() {
   };
 
   const handleGif = (nodeTerjemahan: Node) => {
-    const foundGimmick = nodeTerjemahan.gimmick();
+    const foundGimmick = nodeTerjemahan.getGimmick();
     if (foundGimmick) {
       setGimmick(foundGimmick);
     } else {

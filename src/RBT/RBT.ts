@@ -8,8 +8,8 @@ export class RBT {
     this.root = null;
   }
 
-  add(key: string, value: string, example: string) {
-    const newNode = new Node(key, value, example);
+  add(key: string, value: string, example: string, gimmick: string = '') {
+    const newNode = new Node(key, value, example, gimmick);
 
     if (!this.root) {
       newNode.setRed(false);
