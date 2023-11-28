@@ -1,3 +1,5 @@
+import { Gimmick } from '../Gimmick';
+
 export class Node {
   private key: string;
   private right: Node | null;
@@ -7,9 +9,9 @@ export class Node {
 
   private value: string;
   private example: string;
-  private gimmick: string;
+  private gimmick: Gimmick;
 
-  constructor(key: string, value: string, example: string, gimmick: string) {
+  constructor(key: string, value: string, example: string, gimmick: Gimmick) {
     this.key = key;
     this.left = null;
     this.right = null;
@@ -67,9 +69,5 @@ export class Node {
 
   getGimmick() {
     return this.gimmick;
-  }
-
-  setGimmick(gimmick: string) {
-    this.gimmick = gimmick;
   }
 }

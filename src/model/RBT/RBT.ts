@@ -1,4 +1,7 @@
-import { Node } from './Node.ts';
+import { Gimmick } from '../Gimmick';
+import { Node } from './Node';
+
+import { GimmickNull } from '../Gimmicks';
 
 export class RBT {
   private root: Node | null;
@@ -7,7 +10,7 @@ export class RBT {
     this.root = null;
   }
 
-  add(key: string, value: string, example: string, gimmick: string = '') {
+  add(key: string, value: string, example: string, gimmick: Gimmick = new GimmickNull()) {
     const newNode = new Node(key, value, example, gimmick);
 
     if (!this.root) {
